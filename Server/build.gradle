@@ -1,0 +1,71 @@
+plugins {
+	id 'java'
+	id 'org.springframework.boot' version '3.2.2'
+	id 'io.spring.dependency-management' version '1.1.4'
+    id 'org.jetbrains.kotlin.jvm'
+}
+
+group = 'com.klkk'
+version = '0.0.1-SNAPSHOT'
+
+java {
+}
+
+configurations {
+	compileOnly {
+		extendsFrom annotationProcessor
+	}
+}
+
+repositories {
+	mavenCentral()
+}
+
+dependencies {
+	// Spring Boot 기본 스타터 (웹, 데이터 처리, 보안 관련)
+	implementation 'org.springframework.boot:spring-boot-starter-data-jpa' // JPA를 이용한 데이터 접근
+	implementation 'org.springframework.boot:spring-boot-starter-web' // Spring MVC를 이용한 웹 애플리케이션
+	implementation 'org.springframework.boot:spring-boot-starter-webflux' // Reactive Web 애플리케이션
+
+	implementation 'org.springframework.boot:spring-boot-starter-oauth2-client' // OAuth2 클라이언트
+	implementation 'org.springframework.boot:spring-boot-starter-security' // Spring Security를 이용한 보안 설정
+
+	// Thymeleaf와 Spring Security 통합을 위한 의존성
+	implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity6'
+
+	// Lombok (코드 축약을 위한 라이브러리)
+	compileOnly 'org.projectlombok:lombok' // 컴파일 시에만 사용
+	annotationProcessor 'org.projectlombok:lombok' // 컴파일 시 어노테이션 처리
+
+	// MySQL 드라이버
+	implementation 'com.mysql:mysql-connector-j' // MySQL 데이터베이스 연결
+
+	// Thymeleaf 템플릿 엔진
+	implementation 'org.springframework.boot:spring-boot-starter-thymeleaf' // Thymeleaf 뷰 엔진
+
+
+	// WebSocket 지원
+	implementation 'org.springframework.boot:spring-boot-starter-websocket' // WebSocket 지원
+
+	// Spring Boot 어노테이션 기반 설정 프로세서
+	annotationProcessor "org.springframework.boot:spring-boot-configuration-processor" // 설정 프로세서
+
+	// Jackson을 이용한 JSON 데이터 처리
+	implementation 'com.fasterxml.jackson.core:jackson-databind' // JSON 파싱을 위한 Jackson 라이브러리
+
+	// JWT (JSON Web Token) 사용
+	implementation 'io.jsonwebtoken:jjwt-api:0.11.5' // JWT 생성 및 검증 API
+	runtimeOnly 'io.jsonwebtoken:jjwt-impl:0.11.5' // JWT 구현체
+	runtimeOnly 'io.jsonwebtoken:jjwt-jackson:0.11.5' // JWT와 Jackson 통합
+
+	// Kotlin 표준 라이브러리 (JDK 8 호환용)
+	implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+}
+
+tasks.named('test') {
+	useJUnitPlatform()
+	inputs.files(tasks.named('processResources'))
+}
+kotlin {
+    jvmToolchain(17)
+}
