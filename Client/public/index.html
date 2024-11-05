@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    
+    <!-- 제목 -->
+    <title><%= htmlWebpackPlugin.options.title %> | 웹 코드 플랫폼</title>
+    
+    <!-- 파비콘 -->
+    <link rel="icon" href="<%= BASE_URL %>favicon.svg" type="image/svg+xml">
+    <link rel="icon" href="<%= BASE_URL %>favicon.png" type="image/png">
+
+    <!-- 메타 정보 -->
+    <meta name="description" content="코미디에 가입하여 개발 실력을 향상시켜보세요!">
+    <meta name="keywords" content="코미디는 당신을 성장시킵니다.">
+    <meta name="author" content="코미디">
+
+    <!-- Open Graph (OG) 태그 - 소셜 미디어 미리보기용 -->
+    <meta property="og:title" content="<%= htmlWebpackPlugin.options.title %> | 코미디">
+    <meta property="og:description" content="개발자들을 위한 사이트!">
+    <meta property="og:image" content="<%= BASE_URL %>favicon.png">
+    <meta property="og:url" content="https://comide.site">
+    <meta property="og:type" content="website">
+
+    <!-- 트위터 카드 태그 - 트위터 공유 미리보기용 -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="<%= htmlWebpackPlugin.options.title %> | 코미디">
+    <meta name="twitter:description" content="개발자들을 위한 사이트!">
+    <meta name="twitter:image" content="<%= BASE_URL %>favicon.png">
+  </head>
+  <body>
+    <noscript>
+      <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
